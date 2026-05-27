@@ -58,17 +58,13 @@ import cors from "cors";
 
 const app = express();
 
-// app.use(cors());
-app.use(
-  cors({
-    origin: "https://full-stack-form-chi.vercel.app",
-  })
-);
+app.use(cors());
 // app.use(
 //   cors({
-//     origin: "https://your-frontend-name.vercel.app",
+//     origin: "https://full-stack-form-chi.vercel.app",
 //   })
 // );
+
 app.use(express.json());
 
 const submissions = [];
@@ -109,4 +105,9 @@ app.post("/api/submit", (req, res) => {
   });
 });
 
-export default app;
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+// export default app;
